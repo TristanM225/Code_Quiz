@@ -19,6 +19,13 @@ body {
   margin-top: 20px;
 }
 
+.start-button {
+  font-size: 30px;
+  height: 30px;
+  line-height: 8px;
+  margin-top: 20px;
+}
+
 .win-loss-container {
   display: flex;
   justify-content: space-between;

@@ -1,39 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>CSS Box Styling</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-  </head>
-  <body>
-    <header>
-      <div class= "large-font">Coding Quiz Challange</div>
-      <button class="start-button">Start</button>
-    </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1 id="question"></h1>
+        <ul id="choices"></ul>
+        <button id="start-button">Start</button>
 
-    <main>
- 
+    </div>
 
-      <section>
-        <div class="card results">
-          <div class = "win-loss-container">
-          <div>
-          <h2>Wins: <span class="win">0 </span> </h2>
-          <h2>Losses: <span class="lose">0</span></h2>
-        </div>
-          <button class="reset-button">Reset Score</button>
-      </div>
-          <div class= "card timer">
-            <div class = "timer-text">
-            <div class="large-font timer-count">10</div>
-            <h3>seconds remaining</h3>
-          </div>
-        
-          </div>
-        </div>
-      </section>
-    </main>
-    <script src="assets/js/script.js"></script>
-  </body>
+    <div class="timer">
+      <p> 
+          <span id="timer"></span>
+      </p>
+      <div class="result-container">
+        <p id="result"></p>
+    </div>
+  </div>
+  
+    <script src="./assets/js/script.js"></script>
+</body>
 </html>

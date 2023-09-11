@@ -110,8 +110,9 @@ function startTimer() {
             updateTimer();
         } else {
             // Time is up, handle this as needed (e.g., show the final result)
-            clearInterval(timerInterval);
-            showFinalResult();
+            if (currentQuestionIndex < quizData.length) {
+              showFinalResult();
+          }
         }
     }, 1000); // Update every 1 second (1000 milliseconds)
 }
@@ -136,6 +137,7 @@ function checkAnswer(selectedChoice) {
   if (currentQuestionIndex < quizData.length) {
       loadQuestion();
   } else {
+      // Call showFinalResult() here when the quiz is completed
       showFinalResult();
   }
 }
@@ -144,8 +146,12 @@ function checkAnswer(selectedChoice) {
 function showFinalResult() {
   questionElement.textContent = "Quiz completed!";
   choicesElement.innerHTML = "";
-  submitButton.style.display = "none";
+  startButton.style.display = "none";
   resultElement.textContent = `Your Score: ${score}/${quizData.length}`;
+
+  clearInterval(timerInterval);
+
+  timer.style.display = "none";
 }
 
 // loadQuestion();

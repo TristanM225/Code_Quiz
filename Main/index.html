@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App</title>
+    <title>Coding Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+  <header>
+    <div class= "large-font">Coding Quiz</div>
     <div class="quiz-container">
         <h1 id="question"></h1>
-        <ul id="choices"></ul>
+        <p id="choices"></p>
         <button id="start-button">Start</button>
-        
-
     </div>
+  </header>
 
     <div class="timer">
       <p> 
@@ -21,8 +22,15 @@
       </p>
       <div class="result-container">
         <p id="result"></p>
-        <button id="submit">Submit</button>
+        <div  id="highscore-container">
+          <h2>Highscores</h2>
+          <p id="highscore-list"></p>
+          <input type="text" id="name-input" placeholder="Enter your name">
+          <button id="submit-score">Submit</button>
+        </div>
+        
     </div>
+
   </div>
   
     <script src="./assets/js/script.js"></script>

@@ -42,7 +42,7 @@ const quizData = [
     {
       question: "What do we use to style a page?",
       choices: ["Color", "CSS", "Style", "HTML"],
-      correctAnswer: "h1"
+      correctAnswer: "CSS"
       },
       {
         question: "JavaScript makes pages reactive",
@@ -63,6 +63,39 @@ const choicesElement = document.getElementById("choices");
 const submitButton = document.getElementById("submit");
 const resultElement = document.getElementById("result");
 
+const highscoreContainer = document.getElementById("highscore-container");
+const highscoreList = document.getElementById("highscore-list");
+const nameInput = document.getElementById("name-input");
+const submitScoreButton = document.getElementById("submit-score");
+
+function loadHighscores() {
+  const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  highscores.sort((a, b) => b.score - a.score); // Sort highscores in descending order
+  highscoreList.innerHTML = "";
+  for (const scoreData of highscores) {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${scoreData.name}: ${scoreData.score}`;
+    highscoreList.appendChild(listItem);
+  }
+}
+
+// Save a new highscore to localStorage
+function saveHighscore(name, score) {
+  const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+  const newScore = { name, score };
+  highscores.push(newScore);
+  localStorage.setItem("highscores", JSON.stringify(highscores));
+  loadHighscores(); // Reload highscores list
+}
+
+// Event listener for submitting a score
+submitScoreButton.addEventListener("click", () => {
+  const playerName = nameInput.value.trim();
+  if (playerName && score > 0) {
+    saveHighscore(playerName, score);
+    nameInput.value = ""; // Clear the input field
+  }
+});
 
 
 function startQuiz() {
@@ -156,3 +189,5 @@ function showFinalResult() {
 
 // loadQuestion();
 startButton.addEventListener("click", startQuiz);
+
+loadHighscores();

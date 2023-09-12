@@ -116,7 +116,7 @@ function loadQuestion() {
   
   choicesElement.innerHTML = "";
   currentQuestion.choices.forEach((choice) => {
-      const choiceItem = document.createElement("li");
+      const choiceItem = document.createElement("p");
       const choiceButton = document.createElement("button");
       choiceButton.textContent = choice;
       choiceButton.addEventListener("click", () => checkAnswer(choice));

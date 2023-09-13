@@ -12,13 +12,6 @@ body {
   background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
 }
 
-.reset-button {
-  font-size: 16px;
-  height: 30px;
-  line-height: 8px;
-  margin-top: 20px;
-}
-
 .start-button {
   font-size: 30px;
   height: 30px;
@@ -67,15 +60,8 @@ section {
   border-radius: 8px;
 }
 
-.word-guess {
-  width: 55vw;
-  height: 400px;
-}
 
-.results {
-  width: 30vw;
-  height: 400px;
-}
+
 
 .card {
   background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,124,33,0.604079131652661) 100%);
@@ -101,9 +87,7 @@ section {
   text-align: center;
 }
 
-.timer-text {
-  padding: 55px;
-}
+
 
 @media screen and (max-width: 1183px) {
   main {
@@ -137,3 +121,4 @@ section {
     height: 200px;
   }
  
+}

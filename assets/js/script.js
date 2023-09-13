@@ -1,33 +1,5 @@
-// var quizQuestions = [
-//   {
-//   title: "Which Header element is the largest?",
-//   choices: ["h1", "h2", "h3", "h4"],
-//   answer: "h1"
-//   },
-//   {
-//     title: "What does js stand for?",
-//     choices: ["Java", "Juniors", "JavaScript", "nothing"],
-//     answer: "JavaScript"
-//     },
-//     {
-//       title: "What do we use to style a page?",
-//       choices: ["Color", "CSS", "Style", "HTML"],
-//       answer: "h1"
-//       },
-//       {
-//         title: "JavaScript makes pages reactive",
-//         choices: ["True", "False"],
-//         answer: "True"
-//         },
-// ]
 
 
-
-
-
-
-
-// Define your quiz questions and answers
 const quizData = [
   {
     question: "Which Header element is the largest?",
@@ -53,7 +25,8 @@ const quizData = [
 
 let currentQuestionIndex = 0;
 let score = 0;
-let timeRemaining = 60; 
+// decreased timer to 30 seconds to make harder
+let timeRemaining = 30; 
 
 const startButton = document.getElementById("start-button");
 const quizContainer = document.querySelector(".quiz-container");
@@ -93,17 +66,17 @@ submitScoreButton.addEventListener("click", () => {
   const playerName = nameInput.value.trim();
   if (playerName && score > 0) {
     saveHighscore(playerName, score);
-    nameInput.value = ""; // Clear the input field
+    nameInput.value = ""; // Clear the input field after score is saved
   }
 });
 
-
+// function to hide questions before start
 function startQuiz() {
 
-
+// loads questions and timer
   loadQuestion();
   startTimer();
-  // You can also hide the "Start" button or any other initial elements
+  
   startButton.style.display = "none";
   quizContainer.style.display = "block";
   timer.style.display = "block";
@@ -142,12 +115,12 @@ function startTimer() {
             timeRemaining--;
             updateTimer();
         } else {
-            // Time is up, handle this as needed (e.g., show the final result)
+            // Time is up show final result regardless of one question you're on
             if (currentQuestionIndex < quizData.length) {
               showFinalResult();
           }
         }
-    }, 1000); // Update every 1 second (1000 milliseconds)
+    }, 1500); // accounting for the two updateTimer calls
 }
 
 
